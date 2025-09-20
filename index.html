@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BookList Pribadi</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+  <body>
+    <!-- Header: Title + Search + Add -->
+    <header class="app-header">
+      <div class="brand">BookList Pribadi</div>
+
+      <!-- Search Bar -->
+      <div class="search-box">
+        <i data-feather="search" class="icon"></i>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Cari Produk, Judul Buku, atau Penulis"
+        />
+      </div>
+      <!-- Tambah Buku -->
+      <button id="btnAdd" class="btn primary">+ Tambah Buku</button>
+    </header>
+
+    <main class="container">
+      <!-- Table -->
+      <div class="card">
+        <div class="table-responsive">
+          <table class="table" id="bookTable" aria-describedby="infoTable">
+            <thead>
+              <tr>
+                <th>Nomor</th>
+                <th>Foto</th>
+                <th>Judul</th>
+                <th>Penulis</th>
+                <th>Genre</th>
+                <th>Status</th>
+                <th>Halaman</th>
+                <th>Rating</th>
+                <th>Sinopsis</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="bookTbody"></tbody>
+          </table>
+        </div>
+        <p id="infoTable" class="muted">
+          Klik “+ Tambah Buku” untuk menambahkan data baru.
+        </p>
+      </div>
+    </main>
+
+    <!-- Modal Form -->
+    <dialog id="bookDialog">
+      <form id="bookForm" method="dialog">
+        <h3 id="dialogTitle">Tambah Buku</h3>
+
+        <input type="hidden" id="bookNumber" />
+
+        <div class="grid">
+          <label>
+            Nama Buku
+            <input
+              type="text"
+              id="nama"
+              required
+              placeholder="Masukkan Judul Buku"
+            />
+          </label>
+
+          <label>
+            Nama Penulis
+            <input
+              type="text"
+              id="penulis"
+              required
+              placeholder="Masukkan Nama Penulis"
+            />
+          </label>
+
+          <label>
+            Genre
+            <select id="genre" required>
+              <option value="">-- Pilih Genre --</option>
+              <option>Bisnis</option>
+              <option>Teknologi</option>
+              <option>Fiksi</option>
+              <option>Nonfiksi</option>
+              <option>Self-Improvement</option>
+              <option>Sejarah</option>
+              <option>Edukasi</option>
+            </select>
+          </label>
+
+          <label>
+            Status
+            <select id="status" required>
+              <option value="">-- Pilih Status --</option>
+              <option>Reading</option>
+              <option>Finish</option>
+              <option>Plan to Read</option>
+            </select>
+          </label>
+
+          <label>
+            Total Halaman
+            <input
+              type="number"
+              id="halaman"
+              min="1"
+              step="1"
+              required
+              placeholder="Masukkan Total Halaman"
+            />
+          </label>
+
+          <label>
+            Rating (1-10)
+            <input
+              type="number"
+              id="rating"
+              min="1"
+              max="10"
+              step="1"
+              required
+              placeholder="Masukkan Rating"
+            />
+          </label>
+
+          <label class="col-span-2">
+            Sinopsis
+            <textarea
+              id="sinopsis"
+              rows="3"
+              placeholder="Cerita singkat..."
+            ></textarea>
+          </label>
+
+          <label class="col-span-2">
+            Foto
+            <input type="text" id="foto" placeholder="nama_buku.jpg" />
+            <small class="muted"
+              >Letakkan file di folder <code>img/</code> dan tulis namanya di
+              sini.</small
+            >
+          </label>
+        </div>
+
+        <div class="dialog-actions">
+          <button type="submit" class="btn simpan" id="btnSave">Simpan</button>
+          <button type="button" class="btn" id="btnCancel">Batal</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="script.js"></script>
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>
