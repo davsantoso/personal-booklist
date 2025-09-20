@@ -23,3 +23,4 @@ Aplikasi web sederhana untuk mencatat koleksi buku: tambah, edit, hapus, dan car
 4. Letakkan gambar cover di folder `img/` lalu isi nama file di form.
 
 ## 📸 Preview
+![Alt Text](img/preview.png)
